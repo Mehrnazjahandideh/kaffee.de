@@ -1,0 +1,1182 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Times New Roman', serif; /* فونت کلاسیک شبیه مولیناری */
+    background-color: #fff;
+    color: #333;
+}
+
+/*              استایل هدر و منو             */
+.header-container {
+    background-color: #fff;
+    padding: 20px 80px;
+    position: sticky; /* چسبیدن منو به بالا هنگام اسکرول */
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    height: 100px;
+        
+
+}
+
+.navigation {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    
+}
+
+/* استایل لیست منوها */
+.nav-list {
+    list-style: none;
+    display: flex;
+    gap: 50px; /* فاصله بین آیتم‌های منو */
+
+}
+
+/* لینک‌ها */
+.nav-list a {
+    text-decoration: none;
+    color: #bfa060; 
+    font-size: 14px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    transition: color 0.3s;
+}
+
+.nav-list a:hover {
+    color: #000; /* رنگ هاور مشکی */
+}
+
+/* تنظیم جایگاه منوها */
+.left-menu {
+    margin-right: auto;
+}
+
+.right-menu {
+    margin-left: auto; 
+    
+}
+
+/* ========================================= */
+/*               استایل لوگو                 */
+/* ========================================= */
+.logo-container {
+    position: absolute; /* لوگو همیشه دقیقاً وسط باشد */
+    left: 50%; 
+    transform: translateX(-50%);
+    text-align: center;
+   
+
+}
+
+.logo-container img {
+    width: auto;
+    max-height: 100px;
+}
+
+/* ========================================= */
+/*              استایل ویدیو                 */
+/* ========================================= */
+.video-hero {
+    position: relative;
+    width: 100%;
+    height: 150vh; /* ارتفاع ویدیو: 80 درصد ارتفاع صفحه */
+    overflow: hidden;
+}
+
+
+.hero-overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #fff;
+    font-size: 2rem;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+}
+
+
+@media screen and (max-width: 768px) {
+    .navigation {
+        flex-direction: column; /* چیدمان ستونی */
+        gap: 20px;
+    }
+
+    .logo-container {
+        position: static; /* در موبایل لوگو وسط نرود، بالا بیاید */
+        transform: none;
+        order: 1; /* لوگو اول باشد */
+        margin-bottom: 10px;
+    }
+
+    .left-menu, .right-menu {
+        margin: 0; /* حذف فاصله‌های اضافی */
+        width: 100%;
+        justify-content: center; /* وسط چین کردن لینک‌ها */
+        display: flex;
+    }
+
+    .left-menu { order: 2; } /* منوی چپ بیاید زیر لوگو */
+    .right-menu { order: 3; } /* منوی راست بیاید آخر */
+    
+    .video-hero {
+        height: 150vh; 
+        width: 100%;
+        margin-top: 150px;
+        
+    }
+  
+    .header-container{
+        position: static;
+    }
+    
+}
+
+/*           استایل بخش برندها (BRANDS)      */
+
+.brands-section {
+    padding: 80px 20px;
+    background-color: #f4f1ea; 
+    text-align: center;
+}
+
+.section-title {
+    margin-bottom: 50px;
+}
+
+.section-title h2 {
+    font-size: 2.5rem;
+    color: #4b7a47;
+    margin-bottom: 10px;
+    letter-spacing: 2px;
+}
+
+.section-title p {
+    color: #666;
+    font-style: italic;
+}
+
+/* کانتینر نگهدارنده سه تا کارت */
+.brands-container {
+    display: flex;
+    justify-content: center;
+    gap: 30px; /* فاصله بین کارت‌ها */
+    max-width: 1200px;
+    margin: 0 auto; /* وسط چین کردن کل باکس */
+    flex-wrap: wrap; /* اگر جا نبود بره خط بعد */
+}
+
+/* استایل هر کارت تکی */
+.brand-card {
+    background: #fff;
+    width: 30%; /* هر کارت 30 درصد صفحه را بگیرد */
+    min-width: 300px;
+    padding-bottom: 30px;
+    border-radius: 10px; /* گوشه‌های گرد */
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1); /* سایه نرم */
+    overflow: hidden;
+    transition: transform 0.3s ease;
+}
+
+.brand-card:hover {
+    transform: translateY(-10px); /* وقتی موس رفت روش کمی بره بالا */
+}
+
+/* بخش عکس کارت */
+.card-image {
+    width: 100%;
+    height: 250px; /* ارتفاع عکس‌ها */
+    background-color: #ddd;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-weight: bold;
+}
+
+/* تنظیم عکس واقعی (وقتی عکس گذاشتی) */
+.card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* عکس دفرمه نشود و فیت شود */
+}
+
+/* باکس‌های رنگی موقت بجای عکس */
+.placeholder-box {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+}
+
+/* نوشته‌های داخل کارت */
+.brand-card h3 {
+    margin: 20px 0 10px;
+    font-size: 1.5rem;
+    color: #333;
+}
+
+.brand-card p {
+    padding: 0 20px;
+    color: #777;
+    margin-bottom: 25px;
+    line-height: 1.5;
+}
+
+/* دکمه خرید */
+.shop-btn {
+    display: inline-block;
+    padding: 10px 30px;
+    background-color: #4b7a47; /* سبز */
+    color: #fff;
+    text-decoration: none;
+    border-radius: 25px;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    transition: background 0.3s;
+}
+
+.shop-btn:hover {
+    background-color: #3a6136; /* سبز تیره‌تر موقع هاور */
+}
+
+/* ========================================= */
+/*           ریسپانسیو (برای موبایل)         */
+/* ========================================= */
+@media screen and (max-width: 768px) {
+    .brands-container {
+        flex-direction: column; /* کارت‌ها زیر هم قرار بگیرند */
+        align-items: center;
+    }
+
+    .brand-card {
+        width: 100%; /* در موبایل کارت تمام عرض باشد */
+        max-width: 400px;
+    }
+}
+/* ========================================= */
+/*       استایل بخش‌های معرفی (FEATURES)     */
+/* ========================================= */
+
+.features-section {
+    padding: 50px 0;
+    background-color: #f4f1ea; /* رنگ زمینه کرم */
+    overflow: hidden;
+    
+}
+
+.feature-row {
+    display: flex;
+    align-items: center; /* عمودی وسط چین */
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto 100px auto; /* فاصله زیاد بین برندها */
+    padding: 0 40px;
+}
+
+/* تنظیم عرض ستون متن و عکس */
+.feature-text {
+    width: 45%;
+}
+
+.feature-image {
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* استایل عکس‌ها */
+.feature-image img {
+    width: 100%;
+    max-width: 450px; /* حداکثر اندازه عکس */
+    height: auto;
+    filter: drop-shadow(0 10px 20px rgba(0,0,0,0.2)); /* سایه زیبا زیر عکس محصول */
+    transition: transform 0.5s ease;
+}
+
+.feature-image img:hover {
+    transform: scale(1.05); /* زوم شدن عکس موقع هاور */
+}
+
+.img-placeholder {
+    width: 100%;
+    height: 400px;
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 24px;
+    font-weight: bold;
+}
+.green-box { background-color: #0b4d2c; }
+.red-box { background-color: #d62222; }
+.gold-box { background-color: #c49a6c; }
+
+/* استایل متن‌ها */
+.brand-tag {
+    font-size: 12px;
+    font-weight: bold;
+    color: #bfa060; /* طلایی */
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    display: block;
+    margin-bottom: 10px;
+}
+
+.feature-text h2 {
+    font-size: 3rem; /* تیتر بزرگ */
+    color: #1e3932; /* سبز خیلی تیره استارباکسی */
+    margin-bottom: 15px;
+    font-family: serif; /* فونت کلاسیک */
+}
+
+.stars {
+    color: #1e3932;
+    font-weight: bold;
+    margin-bottom: 20px;
+    font-size: 0.9rem;
+}
+
+.feature-text p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: #555;
+    margin-bottom: 25px;
+}
+
+/* لیست ویژگی‌ها (تیک‌دار) */
+.feature-list {
+    list-style: none;
+    margin-bottom: 30px;
+}
+
+.feature-list li {
+    font-size: 1rem;
+    color: #333;
+    margin-bottom: 8px;
+    font-weight: 500;
+}
+
+/* دکمه خرید  */
+.buy-btn {
+    display: inline-block;
+    background-color: #006241; /* سبز معروف استارباکس */
+    color: white;
+    padding: 12px 35px;
+    border-radius: 50px; /* کاملا گرد */
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.buy-btn:hover {
+    background-color: #004d33;
+    transform: translateY(-2px); /* حرکت دکمه به بالا */
+}
+
+/* ========================================= */
+/*           ریسپانسیو (موبایل)              */
+/* ========================================= */
+@media screen and (max-width: 900px) {
+    .feature-row {
+        flex-direction: column-reverse; /* ستونی شدن */
+        text-align: center; /* وسط چین شدن متن‌ها */
+        margin-bottom: 60px;
+    }
+
+    /* کلاس مخصوص برای برگرداندن ترتیب در موبایل */
+    /* می‌خواهیم در موبایل اول عکس باشد بعد متن، برای همه برندها */
+  .feature-row , .reverse-layout {
+        flex-direction: column-reverse; 
+    } 
+    
+    .feature-text, .feature-image {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+
+    .feature-text h2 {
+        font-size: 2rem;
+    }
+
+    .feature-list {
+        display: inline-block;
+        text-align: left; /* لیست‌ها چپ چین بمانند قشنگ‌تر است */
+    }
+    .buy-btn{
+        align-items: center;
+        display: flex;
+        width: 200px;
+    }
+}
+
+
+
+/* ========================================= */
+/*         استایل بخش درباره ما (ABOUT)      */
+/* ========================================= */
+
+.about-section {
+    background-color: #f4f1ea; /* همان رنگ کرم کاغذ */
+    padding: 80px 0 0 0; /* فاصله از بالا */
+    text-align: center;
+    overflow: hidden; /* اگر متن بزرگ از کادر زد بیرون، اسکرول نخورد */
+}
+
+/* استایل متن‌های مقدمه */
+.about-intro {
+    max-width: 700px;
+    margin: 0 auto 60px auto;
+    padding: 0 20px;
+}
+
+.small-heading {
+    color: #4b7a47; /* سبز */
+    font-size: 14px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.about-desc {
+    font-size: 1.2rem;
+    line-height: 1.8;
+    color: #555;
+}
+
+/* کانتینر لایه‌بندی (جایی که جادو اتفاق می‌افتد!) */
+.visual-layer-container {
+    position: relative; /* ضروری برای لایه‌بندی */
+    width: 100%;
+    min-height: 400px; /* ارتفاع حداقلی */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 50px;
+}
+
+/* تیتر وسط (01 Kaffeebohne) */
+.roast-title {
+    position: absolute;
+    top: 0; /* چسبیده به بالای کانتینر تصویر */
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10; /* روی همه چیز باشد */
+    text-align: center;
+}
+
+.roast-number {
+    display: block;
+    color: #4b7a47;
+    font-size: 14px;
+    margin-bottom: 5px;
+}
+
+.roast-title h3 {
+    font-family: serif; /* فونت کلاسیک */
+    font-size: 3rem;
+    color: #1e3932;
+    border-bottom: 2px solid #1e3932; /* خط زیر متن */
+    padding-bottom: 5px;
+    display: inline-block;
+}
+
+/* متن بزرگ پس‌زمینه (GERMAN KAFFEE) */
+.big-bg-text {
+    font-family: 'Arial Black', sans-serif; /* فونت خیلی ضخیم */
+    font-size: 9vw; /* سایز بر اساس عرض صفحه (خیلی بزرگ) */
+    color: #7d966d; /* سبز کمرنگ */
+    opacity: 0.8;
+    text-transform: uppercase;
+    white-space: nowrap; /* متن در یک خط بماند */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1; /* لایه پایین (زیر عکس قهوه) */
+    letter-spacing: 10px;
+}
+
+.beans-wrapper {
+    position: relative;
+    z-index: 2; /* لایه بالا (روی متن بزرگ) */
+    width: 80%;
+    max-width: 800px;
+    height: 300px; /* ارتفاع جای عکس */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.floating-beans {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.placeholder-beans {
+    width: 100%;
+    height: 100%;
+    border: 2px dashed #4b7a47;
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #4b7a47;
+    font-weight: bold;
+    background-color: rgba(255, 255, 255, 0.5); /* کمی شفاف */
+}
+
+/* ========================================= */
+/*           ریسپانسیو (موبایل)              */
+/* ========================================= */
+@media screen and (max-width: 768px) {
+    .roast-title h3 {
+        font-size: 2rem; /* کوچک شدن تیتر وسط */
+    }
+
+    .big-bg-text {
+        font-size: 15vw; /* تنظیم سایز متن بزرگ برای موبایل */
+        letter-spacing: 2px;
+    }
+    
+    .visual-layer-container {
+        min-height: 250px;
+    }
+}
+
+/* ========================================= */
+/*         استایل بخش مزایا (BENEFITS)       */
+/* ========================================= */
+
+.benefits-section {
+    padding: 80px 20px;
+    background-color: #fff; /* پس زمینه سفید (یا می‌توانی همان کرم f4f1ea بگذاری) */
+    text-align: center;
+}
+
+.benefits-title h2 {
+    font-family: serif; /* فونت کلاسیک */
+    color: #bfa060; /* رنگ طلایی دقیقاً مثل عکس */
+    font-size: 2.5rem;
+    margin-bottom: 60px;
+}
+
+/* چیدمان 4 تایی */
+.benefits-grid {
+    display: flex;
+    justify-content: space-around; /* فاصله مساوی بین آیتم‌ها */
+    align-items: flex-start;
+    max-width: 1200px;
+    margin: 0 auto;
+    flex-wrap: wrap; /* برای موبایل بشکند */
+}
+
+.benefit-item {
+    width: 22%; /* هر آیتم حدود یک چهارم صفحه */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+/* دایره‌های دور آیکون (شبیه مُهر) */
+.icon-circle {
+    width: 140px;
+    height: 140px;
+    border: 4px solid #333; /* حاشیه ضخیم مشکی */
+    border-radius: 50%; /* گرد کردن */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 25px;
+    transition: transform 0.3s;
+}
+
+.benefit-item:hover .icon-circle {
+    transform: scale(1.1); /* موقع هاور بزرگ شود */
+    border-color: #4b7a47; /* و سبز شود */
+    color: #4b7a47;
+}
+
+/* متن داخل دایره (اگر عکس نداشتی) */
+.icon-text {
+    font-weight: 900;
+    font-size: 18px;
+    line-height: 1.2;
+    color: #333;
+    text-align: center;
+}
+
+.benefit-item:hover .icon-text {
+    color: #4b7a47;
+}
+
+/* نوشته‌های پایین آیکون */
+.benefit-item h3 {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+    color: #000;
+    font-weight: bold;
+}
+
+.benefit-item p {
+    font-size: 1rem;
+    color: #666;
+    max-width: 200px; /* جلوگیری از خیلی دراز شدن متن */
+}
+
+/* ========================================= */
+/*           ریسپانسیو (موبایل)              */
+/* ========================================= */
+@media screen and (max-width: 768px) {
+    .benefits-grid {
+        justify-content: center;
+    }
+
+    .benefit-item {
+        width: 45%; /* در تبلت دو تا کنار هم */
+        margin-bottom: 50px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .benefit-item {
+        width: 100%; /* در موبایل یکی زیر دیگری */
+    }
+}
+/* ========================================= */
+/*         استایل دکمه چت (CHAT WIDGET)      */
+/* ========================================= */
+
+.chat-widget {
+    position: fixed; /* ثابت شدن در صفحه */
+    bottom: 30px;    /* فاصله از پایین */
+    right: 30px;     /* فاصله از راست */
+    background-color: #bfa060; /* رنگ طلایی/قهوه‌ای Batsam */
+    color: white;
+    padding: 12px 25px 12px 15px; /* تنظیم فاصله داخلی */
+    border-radius: 50px; /* کپسولی شدن دکمه */
+    display: flex;
+    align-items: center;
+    gap: 15px; /* فاصله بین آیکون و متن */
+    text-decoration: none;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2); /* سایه برای برجسته شدن */
+    z-index: 9999; /* همیشه روی همه چیز باشد */
+    transition: transform 0.3s, background 0.3s;
+    font-family: sans-serif;
+    font-weight: bold;
+}
+
+/* هاور (وقتی موس میره روش) */
+.chat-widget:hover {
+    transform: translateY(-5px); /* کمی بره بالا */
+    background-color: #a38548; /* رنگ تیره‌تر */
+    box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+}
+
+/* دایره دور آیکون */
+.chat-icon-box {
+    background-color: rgba(0,0,0,0.1); /* کمی تیره تر از خود دکمه */
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* متن دکمه */
+.chat-text {
+    font-size: 16px;
+    letter-spacing: 0.5px;
+}
+
+/* ریسپانسیو موبایل (کمی کوچکتر شود) */
+@media screen and (max-width: 768px) {
+    .chat-widget {
+        bottom: 20px;
+        right: 20px;
+        padding: 10px 20px 10px 10px;
+    }
+    
+    .chat-text {
+        font-size: 14px;
+    }
+}
+/* ========================================= */
+/*       استایل بخش سه گانه (SPLIT HERO)     */
+/* ========================================= */
+
+.split-hero {
+    display: flex;       /* چیدن ستون‌ها کنار هم */
+    width: 100%;
+    height: 85vh;        /* ارتفاع: 85 درصد ارتفاع صفحه نمایش */
+    overflow: hidden;    /* جلوگیری از اسکرول اضافه */
+    background-color: #000;
+}
+
+.hero-column {
+    position: relative;
+    flex: 1;             /* هر سه ستون به اندازه مساوی فضا بگیرند */
+    background-size: cover;      /* عکس کل فضا را پر کند */
+    background-position: center; /* مرکز عکس نشان داده شود */
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: center;     /* متن وسط افقی */
+    align-items: center;         /* متن وسط عمودی */
+    text-decoration: none;       /* حذف خط زیر لینک */
+    transition: all 0.5s ease;   /* انیمیشن نرم برای حرکت */
+    border-right: 1px solid rgba(255,255,255,0.2); /* خط نازک بین عکس‌ها */
+}
+
+/* آخرین ستون خط سمت راست نخواهد */
+.hero-column:last-child {
+    border-right: none;
+}
+
+/* لایه تاریک روی عکس (برای اینکه سفید متن دیده شود) */
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.3); /* 30 درصد سیاهی */
+    transition: background 0.3s;
+}
+
+/* استایل متن‌های روی عکس (Instant, Beans, Capsules) */
+.hero-column h2 {
+    position: relative;
+    z-index: 2;          /* متن روی لایه تاریک باشد */
+    color: #fff;         /* رنگ سفید */
+    font-size: 3.5rem;   /* سایز بزرگ */
+    font-family: 'Times New Roman', serif; /* فونت کلاسیک */
+    text-shadow: 0 5px 15px rgba(0,0,0,0.5); /* سایه زیر متن */
+    text-transform: capitalize;
+}
+
+/* --- افکت‌های هاور (وقتی موس میره روش) --- */
+
+/* 1. وقتی موس میره رو یک ستون، اون ستون پهن‌تر بشه */
+.hero-column:hover {
+    flex: 1.5; /* سهمش از 1 میشه 1.5 (بزرگتر میشه) */
+}
+
+/* 2. لایه تاریک حذف بشه تا عکس شفاف‌تر دیده بشه */
+.hero-column:hover .overlay {
+    background-color: rgba(0, 0, 0, 0.1); 
+}
+
+/* ========================================= */
+/*           ریسپانسیو (موبایل)              */
+/* ========================================= */
+@media screen and (max-width: 768px) {
+    .split-hero {
+        flex-direction: column; /* در موبایل عکس‌ها زیر هم باشند */
+        /* height: auto;           ارتفاع اتوماتیک */
+    }
+
+    .hero-column {
+        width: 100%;
+        height: 300px; /* ارتفاع هر عکس در موبایل */
+        border-right: none;
+        border-bottom: 1px solid rgba(255,255,255,0.2);
+    }
+}
+
+/* ========================================= */
+/*       استایل بخش تماس (CONTACT CSS)       */
+/* ========================================= */
+
+html {
+    scroll-behavior: smooth; /* این خط باعث میشود اسکرول نرم انجام شود */
+}
+
+.contact-section {
+    background-color: #1e3932; /* سبز تیره شیک */
+    color: #fff;
+    padding: 60px 20px 20px 20px;
+    margin-top: 50px;
+}
+
+.contact-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    padding-bottom: 40px;
+    border-bottom: 1px solid rgba(255,255,255,0.1); /* خط جداکننده */
+}
+
+/* ستون متن */
+.contact-text h2 {
+    font-family: serif;
+    color: #bfa060; /* طلایی */
+    margin-bottom: 15px;
+    font-size: 2rem;
+}
+
+.contact-text p {
+    margin-bottom: 20px;
+    opacity: 0.8;
+}
+
+.contact-details {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    font-weight: bold;
+    font-size: 1.1rem;
+}
+
+/* ستون دکمه‌های سوشال */
+.social-icons-wrapper {
+    display: flex;
+    gap: 15px;
+}
+
+.social-link {
+    display: flex;
+    flex-direction: column; /* آیکون بالا، متن پایین */
+    align-items: center;
+    text-decoration: none;
+    color: #fff;
+    font-size: 12px;
+    transition: transform 0.3s;
+}
+
+.social-link svg {
+    width: 50px; /* اندازه آیکون */
+    height: 50px;
+    fill: #fff; /* رنگ سفید */
+    background: rgba(255,255,255,0.1); /* پس زمینه شیشه‌ای */
+    padding: 10px;
+    border-radius: 50%;
+    margin-bottom: 5px;
+    transition: background 0.3s, fill 0.3s;
+}
+
+/* هاور - تغییر رنگ هر آیکون به رنگ برند خودش */
+.social-link:hover {
+    transform: translateY(-5px);
+}
+
+/* رنگ واتساپ */
+.whatsapp:hover svg {
+    background: #25D366;
+    fill: #fff;
+}
+
+/* رنگ اینستاگرام */
+.instagram:hover svg {
+    background: #E1306C;
+    fill: #fff;
+}
+
+/* رنگ تلگرام */
+.telegram:hover svg {
+    background: #0088cc;
+    fill: #fff;
+}
+
+/* کپی رایت پایین */
+.footer-bottom {
+    text-align: center;
+    padding-top: 20px;
+    font-size: 12px;
+    opacity: 0.5;
+}
+
+/* ========================================= */
+/*           ریسپانسیو (موبایل)              */
+/* ========================================= */
+@media screen and (max-width: 768px) {
+    .contact-container {
+        flex-direction: column;
+        text-align: center;
+        gap: 40px;
+    }
+    
+    .contact-details {
+        align-items: center;
+    }
+}
+
+
+/* ========================================= */
+/*       استایل مگا منو (MEGA MENU CSS)      */
+/* ========================================= */
+
+.navbar {
+    position: relative; /* برای اینکه مگا منو نسبت به کل هدر تنظیم شود */
+    z-index: 1000;
+}
+
+/* آیتم منویی که دارای مگا منو است */
+.has-mega-menu {
+    position: static; /* این باعث می‌شود منو تمام عرض صفحه باز شود */
+}
+
+.nav-item {
+    cursor: pointer;
+    padding-bottom: 20px; /* فضای نامرئی برای رفتن موس به پایین */
+}
+
+/* باکس اصلی مگا منو (مخفی) */
+.mega-menu-container {
+    display: none; /* پیش‌فرض مخفی */
+    position: absolute;
+    top: 100%; /* دقیقاً زیر هدر */
+    left: 0;
+    width: 100%; /* تمام عرض صفحه */
+    background-color: #fff;
+    border-top: 4px solid #bfa060; /* خط طلایی بالا */
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    padding: 30px 0;
+    z-index: 999;
+}
+
+/* نمایش منو وقتی موس روی SHOP میرود */
+.has-mega-menu:hover .mega-menu-container {
+    display: block;
+    animation: fadeIn 0.3s ease; /* انیمیشن نرم */
+}
+
+/* چیدمان داخلی منو */
+.mega-menu-inner {
+    max-width: 1000px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between; /* فاصله‌گذاری بین برندها */
+    gap: 20px;
+}
+
+/* استایل هر آیتم برند */
+.mega-brand-item {
+    display: flex;
+    align-items: center; /* عمودی وسط */
+    text-decoration: none;
+    padding: 15px;
+    border-radius: 8px;
+    transition: background 0.2s;
+    width: 32%; /* هر آیتم حدود یک سوم فضا */
+}
+
+.mega-brand-item:hover {
+    background-color: #f9f9f9; /* رنگ پس‌زمینه موقع هاور */
+}
+
+/* استایل عکس کوچک سمت چپ */
+.menu-img-box {
+    width: 60px;
+    height: 60px;
+    margin-right: 15px;
+    flex-shrink: 0; /* عکس جمع نشود */
+}
+
+.menu-img-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+/* جایگزین عکس (دایره رنگی موقت) */
+.menu-placeholder {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-weight: bold;
+    font-size: 20px;
+}
+.green { background-color: #0b4d2c; }
+.red { background-color: #d62222; }
+.gold { background-color: #c49a6c; }
+
+/* متن‌های داخل منو */
+.menu-text h4 {
+    color: #333;
+    font-size: 16px;
+    margin-bottom: 5px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.mega-brand-item:hover .menu-text h4 {
+    color: #bfa060; /* وقتی هاور شد تیتر طلایی شود */
+}
+
+.menu-text p {
+    color: #777;
+    font-size: 13px;
+    line-height: 1.4;
+}
+
+/* انیمیشن باز شدن */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* ریسپانسیو برای موبایل */
+@media screen and (max-width: 768px) {
+    .mega-menu-inner {
+        flex-direction: column; /* در موبایل زیر هم */
+    }
+    .mega-brand-item {
+        width: 100%;
+    }
+}
+
+/* ========================================= */
+/*       استایل مگا منو (MEGA MENU CSS)      */
+/* ========================================= */
+
+.navbar {
+    position: relative; /* برای اینکه مگا منو نسبت به کل هدر تنظیم شود */
+    z-index: 1000;
+}
+
+/* آیتم منویی که دارای مگا منو است */
+.has-mega-menu {
+    position: static; /* این باعث می‌شود منو تمام عرض صفحه باز شود */
+}
+
+.nav-item {
+    cursor: pointer;
+    padding-bottom: 20px; /* فضای نامرئی برای رفتن موس به پایین */
+}
+
+/* باکس اصلی مگا منو (مخفی) */
+.mega-menu-container {
+    display: none; /* پیش‌فرض مخفی */
+    position: absolute;
+    top: 100%; /* دقیقاً زیر هدر */
+    left: 0;
+    width: 100%; /* تمام عرض صفحه */
+    background-color: #fff;
+    border-top: 4px solid #bfa060; /* خط طلایی بالا */
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    padding: 30px 0;
+    z-index: 999;
+}
+
+/* نمایش منو وقتی موس روی SHOP میرود */
+.has-mega-menu:hover .mega-menu-container {
+    display: block;
+    animation: fadeIn 0.3s ease; /* انیمیشن نرم */
+}
+
+/* چیدمان داخلی منو */
+.mega-menu-inner {
+    max-width: 1000px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between; /* فاصله‌گذاری بین برندها */
+    gap: 20px;
+}
+
+/* استایل هر آیتم برند */
+.mega-brand-item {
+    display: flex;
+    align-items: center; /* عمودی وسط */
+    text-decoration: none;
+    padding: 15px;
+    border-radius: 8px;
+    transition: background 0.2s;
+    width: 32%; /* هر آیتم حدود یک سوم فضا */
+}
+
+.mega-brand-item:hover {
+    background-color: #f9f9f9; /* رنگ پس‌زمینه موقع هاور */
+}
+
+/* استایل عکس کوچک سمت چپ */
+.menu-img-box {
+    width: 60px;
+    height: 60px;
+    margin-right: 15px;
+    flex-shrink: 0; /* عکس جمع نشود */
+}
+
+.menu-img-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+/* جایگزین عکس (دایره رنگی موقت) */
+.menu-placeholder {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-weight: bold;
+    font-size: 20px;
+}
+.green { background-color: #0b4d2c; }
+.red { background-color: #d62222; }
+.gold { background-color: #c49a6c; }
+
+/* متن‌های داخل منو */
+.menu-text h4 {
+    color: #333;
+    font-size: 16px;
+    margin-bottom: 5px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.mega-brand-item:hover .menu-text h4 {
+    color: #bfa060; /* وقتی هاور شد تیتر طلایی شود */
+}
+
+.menu-text p {
+    color: #777;
+    font-size: 13px;
+    line-height: 1.4;
+}
+
+/* انیمیشن باز شدن */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* ریسپانسیو برای موبایل */
+@media screen and (max-width: 768px) {
+    .mega-menu-inner {
+        flex-direction: column; /* در موبایل زیر هم */
+    }
+    .mega-brand-item {
+        width: 100%;
+    }
+}
+
+
